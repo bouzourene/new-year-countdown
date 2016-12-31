@@ -22,6 +22,7 @@
 
 				$('#nextYear').html(nextYear);
 
+				if(hours < 10) hours = '0' + hours;
 				if(minutes < 10) minutes = '0' + minutes;
 				if(seconds < 10) seconds = '0' + seconds;
 				$('#time').html(hours + ':' + minutes + ':' + seconds);
@@ -36,7 +37,7 @@
 			body {
 				background-color: #333;
 				color: #fff;
-				font-family: monospace, sans-serif;
+				font-family: sans-serif;
 				text-align: center;
 				padding-top: 10%;
 			}
@@ -51,6 +52,7 @@
 
 			#time {
 				font-size: 100px;
+				font-family: monospace, sans-serif;
 			}
 		</style>
 	</head>
