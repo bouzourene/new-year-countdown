@@ -16,7 +16,7 @@
 				countdown = new Date(newYear.getTime()-new Date().getTime());
 
 				days = parseInt(countdown.getTime()/1000/60/60/24);
-				hours = parseInt((countdown.getTime()-days)/1000/60/60);
+				hours = countdown.getHours()-1;
 				minutes = countdown.getMinutes();
 				seconds = countdown.getSeconds();
 
