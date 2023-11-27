@@ -4,34 +4,30 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 		<title>New Year Timer</title>
-		<script src="jquery-3.1.1.min.js"></script>
 		<script>
-			$(function() {
-				setInterval(function() { refreshTime(); }, 100);
-			});
-
-			var refreshTime = function() {
-				nextYear = new Date().getFullYear()+1;
+			setInterval(function() {
+				nextYear = new Date().getFullYear() + 1;
 				newYear = new Date(nextYear, 0, 1, 0, 0, 0);
-				countdown = new Date(newYear.getTime()-new Date().getTime());
+				countdown = new Date(newYear.getTime() - new Date().getTime());
 
-				days = parseInt(countdown.getTime()/1000/60/60/24);
-				hours = countdown.getHours()-1;
+				days = parseInt(countdown.getTime() / 1000 / 60 / 60 / 24);
+				hours = countdown.getHours() - 1;
 				minutes = countdown.getMinutes();
 				seconds = countdown.getSeconds();
 
-				$('#nextYear').html(nextYear);
+				if (hours < 10) hours = '0' + hours;
+				if (minutes < 10) minutes = '0' + minutes;
+				if (seconds < 10) seconds = '0' + seconds;				
+				var time = hours + ':' + minutes + ':' + seconds;
 
-				if(hours < 10) hours = '0' + hours;
-				if(minutes < 10) minutes = '0' + minutes;
-				if(seconds < 10) seconds = '0' + seconds;
-				$('#time').html(hours + ':' + minutes + ':' + seconds);
+				if (days == 0) days = "";
+				else if (days == 1) days = days + " day";
+				else days = days + " days";
 
-				if(days == 0) daysHTML = "";
-				else if (days == 1) daysHTML = days + " day";
-				else daysHTML = days + " days";
-				$('#days').html(daysHTML);
-			}
+				document.getElementById('nextYear').innerHTML = nextYear;
+				document.getElementById('time').innerHTML = time;
+				document.getElementById('days').innerHTML = days;
+			}, 100);
 		</script>
 		<style>
 			body {
