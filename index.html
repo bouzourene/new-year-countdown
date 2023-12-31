@@ -10,10 +10,10 @@
 				var newYear = new Date(nextYear, 0, 1, 0, 0, 0);
 				var countdown = new Date(newYear.getTime() - new Date().getTime());
 
-				var days = parseInt(countdown.getTime() / 1000 / 60 / 60 / 24);
-				var hours = countdown.getHours() - 1;
-				var minutes = countdown.getMinutes();
-				var seconds = countdown.getSeconds();
+				var days = Math.floor(countdown / 1000 / 60 / 60 / 24);
+				var hours = Math.floor(countdown / 1000 / 60 / 60) % 24;
+				var minutes = Math.floor(countdown / 1000 / 60) % 60;
+				var seconds = Math.floor(countdown / 1000) % 60;
 
 				if (hours < 10) hours = '0' + hours;
 				if (minutes < 10) minutes = '0' + minutes;
